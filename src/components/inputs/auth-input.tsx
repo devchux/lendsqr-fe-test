@@ -18,7 +18,11 @@ const AuthInput: FC<AuthInputProps> = ({
           hasError ? "has-error" : ""
         } ${wrapperClassName || ""}`}
       >
-        <input type={showPassword ? "text" : "password"} {...rest} />
+        <input
+          type={showPassword ? "text" : "password"}
+          {...rest}
+          autoComplete="off"
+        />
         <button
           type="button"
           className="toggle-button"
@@ -34,7 +38,7 @@ const AuthInput: FC<AuthInputProps> = ({
         wrapperClassName || ""
       }`}
     >
-      <input type={type} {...rest} />
+      <input type={type} {...rest} autoComplete="off" />
     </div>
   );
 };
