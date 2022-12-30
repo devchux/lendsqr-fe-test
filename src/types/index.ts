@@ -11,6 +11,7 @@ export interface AuthInputProps
     HTMLInputElement
   > {
   wrapperClassName?: string;
+  hasError?: boolean;
 }
 
 export interface ChildrenProp {
@@ -24,3 +25,7 @@ export interface ButtonProps
   > {
   block?: boolean;
 }
+
+export type UseFormTypes<Type> = {
+  defaultValues: Type;
+};

@@ -1,7 +1,12 @@
 import React, { FC, useState } from "react";
 import { AuthInputProps } from "../../types";
 
-const AuthInput: FC<AuthInputProps> = ({ wrapperClassName, type, ...rest }) => {
+const AuthInput: FC<AuthInputProps> = ({
+  wrapperClassName,
+  hasError = false,
+  type,
+  ...rest
+}) => {
   const [showPassword, setShowPassword] = useState<boolean>(false);
 
   const togglePassword = () => setShowPassword(!showPassword);
@@ -10,8 +15,8 @@ const AuthInput: FC<AuthInputProps> = ({ wrapperClassName, type, ...rest }) => {
     return (
       <div
         className={`auth-input-wrapper auth-password-input ${
-          wrapperClassName || ""
-        }`}
+          hasError ? "has-error" : ""
+        } ${wrapperClassName || ""}`}
       >
         <input type={showPassword ? "text" : "password"} {...rest} />
         <button
@@ -24,7 +29,11 @@ const AuthInput: FC<AuthInputProps> = ({ wrapperClassName, type, ...rest }) => {
       </div>
     );
   return (
-    <div className={`auth-input-wrapper ${wrapperClassName || ""}`}>
+    <div
+      className={`auth-input-wrapper ${hasError ? "has-error" : ""} ${
+        wrapperClassName || ""
+      }`}
+    >
       <input type={type} {...rest} />
     </div>
   );

@@ -5,6 +5,10 @@
   display: flex;
   background-color: #ffffff;
 
+  &.has-error {
+    border: 0.2rem solid rgba(255, 0, 0, 0.3);
+  }
+
   > input {
     width: 100%;
     height: fit-content;
