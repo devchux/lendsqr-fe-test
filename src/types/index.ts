@@ -28,4 +28,8 @@ export interface ButtonProps
 
 export type UseFormTypes<Type> = {
   defaultValues: Type;
+  validation?: Record<
+    string,
+    Record<string, (value: any) => string | boolean>
+  >;
 };
